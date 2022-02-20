@@ -8,7 +8,7 @@
 import Foundation
 
 struct Constants {
-    static let API_KEY = "01b4ba09a7738ce5f021c7e414c7c770"
+    static let API_KEY = "GET API KEY"
     static let baseURL = "https://api.themoviedb.org"
 }
 
@@ -18,7 +18,6 @@ enum APIError: Error {
 class APICaller {
     static let shared = APICaller()
     
-    
     func getTrendingMovies(completion: @escaping (Result<[Title], Error>) -> Void) {
         
         guard let url = URL(string: "\(Constants.baseURL)/3/trending/movie/day?api_key=\(Constants.API_KEY)") else {return}
@@ -27,7 +26,6 @@ class APICaller {
             guard let data = data, error == nil else {
                 return
             }
-            
             do {
                 let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
                 completion(.success(results.results))
@@ -37,7 +35,6 @@ class APICaller {
             }
         }
         task.resume()
-        
     }
     
     func getTrendingTvs(completion: @escaping (Result<[Title], Error>) -> Void) {
@@ -46,7 +43,6 @@ class APICaller {
             guard let data = data, error == nil else {
                 return
             }
-            
             do {
                 let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
                 completion(.success(results.results))
@@ -65,7 +61,6 @@ class APICaller {
             guard let data = data, error == nil else {
                 return
             }
-            
             do {
                 let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
                 dump(results)
@@ -75,7 +70,6 @@ class APICaller {
             }
         }
         task.resume()
-        
     }
     
     func getPopular(completion: @escaping (Result<[Title], Error>) -> Void) {
@@ -84,7 +78,6 @@ class APICaller {
             guard let data = data, error == nil else {
                 return
             }
-            
             do {
                 let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
                 completion(.success(results.results))
@@ -101,7 +94,6 @@ class APICaller {
             guard let data = data, error == nil else {
                 return
             }
-            
             do {
                 let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
                 completion(.success(results.results))
