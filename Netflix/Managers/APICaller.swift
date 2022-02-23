@@ -46,7 +46,6 @@ class APICaller {
             do {
                 let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
                 completion(.success(results.results))
-                dump(results)
             } catch {
                 print(APIError.failedTogetData)
             }
@@ -63,7 +62,6 @@ class APICaller {
             }
             do {
                 let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
-                dump(results)
                 completion(.success(results.results))
             } catch {
                 print(error.localizedDescription)
@@ -81,7 +79,6 @@ class APICaller {
             do {
                 let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
                 completion(.success(results.results))
-                dump(results)
             } catch {
                 completion(.failure(APIError.failedTogetData))
             }
@@ -97,7 +94,6 @@ class APICaller {
             do {
                 let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
                 completion(.success(results.results))
-                dump(results)
             } catch {
                 completion(.failure(APIError.failedTogetData))
             }
@@ -106,4 +102,4 @@ class APICaller {
     }
 }
 
-// https://api.themoviedb.org/3/movie/upcoming?.api_key=<<api_key>>&language=en-US&page=1
+
