@@ -26,7 +26,7 @@ class MainTabBarViewController: UITabBarController {
         vc5.tabBarItem.image = UIImage(systemName: "line.3.horizontal")
 
         vc1.title = "Home"
-        vc2.title = "Top Search"
+        vc2.title = "Upcoming"
         vc3.title = "Coming Soon"
         vc4.title = "Downloads"
         vc5.title = "More"
